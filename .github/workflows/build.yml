@@ -19,15 +19,11 @@ jobs:
         distribution: 'adopt'
         java-version: '8'
 
-    - name: Download Dependencies
-      run: mvn dependency:resolve
     - name: Download Dependencies and Compile Java
       run: mvn clean install
 
-
-
-    - name: Copy plugin.yml
-      run: cp src/main/resources/META-INF/plugin.yml target/DeepCleanMemoryPlugin-1.0-SNAPSHOT.jar
+    - name: Copy plugin.yml into JAR
+      run: jar uf target/DeepCleanMemoryPlugin-1.0-SNAPSHOT.jar -C src/main/resources/META-INF plugin.yml
 
     - name: Upload JAR to GitHub Artifacts
       uses: actions/upload-artifact@v2

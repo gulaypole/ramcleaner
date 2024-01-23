@@ -19,14 +19,11 @@ jobs:
         distribution: 'adopt'
         java-version: '8'
         
-    - name: target folder create 
-      run: mkdir target
+    - name: Download Dependencies
+      run: mvn dependency:resolve
 
     - name: Build with Maven
       run: mvn clean install
-      
-    - name: Compile Java
-      run: javac -d target src/main/java/com/example/DeepCleanMemoryPlugin/DeepCleanMemoryPlugin.java
 
     - name: Create JAR
       run: jar -cvf target/ramcleaner.jar -C target/ .

@@ -6,7 +6,7 @@ author: katilmami
 api-version: 1.7
 website: https://github.com/Katilmami/ramcleanerplugin
 commands:
-  deepcleanmemory:
+  ramclean:
     description: Deep clean up memory
     usage: /ramclean
     permission: ramcleaner.ramclean

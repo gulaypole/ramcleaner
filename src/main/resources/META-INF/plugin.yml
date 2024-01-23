@@ -1,5 +1,5 @@
-name: ramcleaner
-version: 1.0
+name: ramcleanerpro
+version: 2.0
 description: Bukkit Plugin with Clean Memory and RAM Status Commands
 main: com.example.ramcleaner.ramcleaner
 author: katilmami
@@ -7,7 +7,7 @@ api-version: 1.7
 website: https://github.com/Katilmami/ramcleanerplugin
 commands:
   ramclean:
-    description: Deep clean up memory
+    description: clean up memory
     usage: /ramclean
     permission: ramcleaner.ramclean
   ramstatus:

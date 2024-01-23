@@ -1,4 +1,4 @@
-package com.example.DeepCleanMemoryPlugin;
+package com.example.ramcleaner;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -9,22 +9,22 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class DeepCleanMemoryPlugin extends JavaPlugin implements Listener {
+public class ramcleaner extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
-        getLogger().info("DeepCleanMemoryPlugin enabled!");
+        getLogger().info("ramcleaner enabled!");
         getServer().getPluginManager().registerEvents(this, this);
     }
 
     @Override
     public void onDisable() {
-        getLogger().info("DeepCleanMemoryPlugin disabled!");
+        getLogger().info("ramcleaner disabled!");
     }
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (cmd.getName().equalsIgnoreCase("deepcleanmemory")) {
+        if (cmd.getName().equalsIgnoreCase("ramclean")) {
             cleanAndNotify(sender);
             return true;
         } else if (cmd.getName().equalsIgnoreCase("ramstatus")) {

@@ -1,4 +1,4 @@
-package com.example.DeepCleanMemoryPlugin;
+package com.example.ramcleaner;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;

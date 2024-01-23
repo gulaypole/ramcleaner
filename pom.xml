@@ -11,15 +11,15 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
+    <!-- Bağımlılıkları burada tanımla -->
+    <dependencies>
+        <dependency>
+            <groupId>org.bukkit</groupId>
+            <artifactId>craftbukkit-1.6.4</artifactId>
+            <version>dev</version>
+        </dependency>
+    </dependencies>
 
-<dependency>
-    <groupId>org.bukkit</groupId>
-    <artifactId>craftbukkit-1.6.4</artifactId>
-    <version>dev</version>
-</dependency>
-
-
-    
     <build>
         <plugins>
             <plugin>

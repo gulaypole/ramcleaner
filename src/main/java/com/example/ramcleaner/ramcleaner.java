@@ -8,12 +8,12 @@ public class ramcleaner extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        getLogger().info("DeepCleanMemoryPlugin enabled!");
+        getLogger().info("ramcleaner enabled!");
     }
 
     @Override
     public void onDisable() {
-        getLogger().info("DeepCleanMemoryPlugin disabled!");
+        getLogger().info("ramcleaner disabled!");
     }
 
     @Override

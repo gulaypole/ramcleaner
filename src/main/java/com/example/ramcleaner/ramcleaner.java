@@ -9,7 +9,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class ramcleaner extends JavaPlugin implements Listener {
+public class RamCleaner extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
@@ -26,6 +26,9 @@ public class ramcleaner extends JavaPlugin implements Listener {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (cmd.getName().equalsIgnoreCase("ramclean")) {
             cleanAndNotify(sender);
+            return true;
+        } else if (cmd.getName().equalsIgnoreCase("ramstatus")) {
+            displayRamStatus(sender);
             return true;
         }
         return false;
@@ -61,7 +64,7 @@ public class ramcleaner extends JavaPlugin implements Listener {
         sender.sendMessage("Waiting for a moment...");
 
         try {
-            Thread.sleep(1000); 
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

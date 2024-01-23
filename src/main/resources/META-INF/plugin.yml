@@ -10,4 +10,3 @@ commands:
     description: Deep clean up memory
     usage: /deepcleanmemory
     permission: deepcleanmemoryplugin.deepcleanmemory
-    

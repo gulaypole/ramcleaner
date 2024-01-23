@@ -18,18 +18,9 @@ jobs:
       with:
         distribution: 'adopt'
         java-version: '8'
-        
-    - name: target folder create 
-      run: mkdir target
 
-    - name: Compile Java
-      run: javac -d target src/main/java/com/example/DeepCleanMemoryPlugin/DeepCleanMemoryPlugin.java
-
-    - name: Create JAR
-      run: jar -cvf target/ramcleaner.jar -C target/ .
-
-    - name: Copy plugin.yml
-      run: cp src/main/resources/META-INF/plugin.yml target/
+    - name: Build with Maven
+      run: mvn clean install
 
     - name: Create Release
       id: create_release
@@ -49,6 +40,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: target/ramcleaner.jar
-        asset_name: ramcleaner.jar
+        asset_path: target/your-artifact.jar  # Projeye özel olarak güncelleyin
+        asset_name: your-artifact.jar          # Projeye özel olarak güncelleyin
         asset_content_type: application/java-archive

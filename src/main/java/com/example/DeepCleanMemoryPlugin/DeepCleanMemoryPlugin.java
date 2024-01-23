@@ -20,9 +20,9 @@ public class DeepCleanMemoryPlugin extends JavaPlugin {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (cmd.getName().equalsIgnoreCase("deepcleanmemory")) {
 
-
+            sender.sendMessage("Waiting for garbage collection to clean up memory...");
             System.gc();
-
+            sender.sendMessage("RAM is being cleared, wait...");
 
             try {
                 Thread.sleep(1000); 

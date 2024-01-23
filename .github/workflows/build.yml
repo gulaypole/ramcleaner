@@ -21,7 +21,8 @@ jobs:
 
     - name: Download Dependencies
       run: mvn dependency:resolve
-
+    - name: target folder create
+      run: mkdir target
     - name: Compile Java
       run: javac -d target src/main/java/com/example/DeepCleanMemoryPlugin/DeepCleanMemoryPlugin.java
 

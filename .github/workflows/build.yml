@@ -1,4 +1,4 @@
-name: Build and Release
+name: Build and Upload JAR
 
 on:
   push:
@@ -18,37 +18,15 @@ jobs:
       with:
         distribution: 'adopt'
         java-version: '8'
-        
+
     - name: Download Dependencies
       run: mvn dependency:resolve
 
     - name: Build with Maven
       run: mvn clean install
 
-    - name: Create JAR
-      run: jar -cvf target/ramcleaner.jar -C target/ .
-
-    - name: Copy plugin.yml
-      run: cp src/main/resources/META-INF/plugin.yml target/
-
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Upload JAR to GitHub Artifacts
+      uses: actions/upload-artifact@v2
       with:
-        tag_name: ${{ github.sha }}
-        release_name: Release ${{ github.sha }}
-        draft: false
-        prerelease: false
-
-    - name: Upload Artifact
-      id: upload-release-asset
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: target/ramcleaner.jar
-        asset_name: ramcleaner.jar
-        asset_content_type: application/java-archive
+        name: ramcleaner
+        path: target/ramcleaner.jar

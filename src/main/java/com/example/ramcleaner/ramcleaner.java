@@ -27,9 +27,6 @@ public class ramcleaner extends JavaPlugin implements Listener {
         if (cmd.getName().equalsIgnoreCase("ramclean")) {
             cleanAndNotify(sender);
             return true;
-        } else if (cmd.getName().equalsIgnoreCase("ramstatus")) {
-            displayRamStatus(sender);
-            return true;
         }
         return false;
     }
@@ -68,14 +65,20 @@ public class ramcleaner extends JavaPlugin implements Listener {
 
 
         try {
-            Thread.sleep(1000);
+            Thread.sleep(1000); 
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
 
-        displayRamStatus(sender);
+        long afterMemory = Runtime.getRuntime().freeMemory();
+        long cleanedMemoryBytes = afterMemory;
+        long cleanedMemoryMB = cleanedMemoryBytes / (1024 * 1024);
+
+
+        sender.sendMessage("RAM cleaned: " + cleanedMemoryMB + " MB");
     }
+}
 
     private void displayRamStatus(CommandSender sender) {
 

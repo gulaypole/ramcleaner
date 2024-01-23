@@ -13,13 +13,13 @@ public class ramcleaner extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
-        getLogger().info("ramcleaner enabled!");
+        getLogger().info("RamCleaner enabled!");
         getServer().getPluginManager().registerEvents(this, this);
     }
 
     @Override
     public void onDisable() {
-        getLogger().info("ramcleaner disabled!");
+        getLogger().info("RamCleaner disabled!");
     }
 
     @Override
@@ -54,15 +54,11 @@ public class ramcleaner extends JavaPlugin implements Listener {
     }
 
     private void cleanAndNotify(CommandSender sender) {
-
         sender.sendMessage("Waiting for garbage collection to clean up memory...");
-
 
         System.gc();
 
-
         sender.sendMessage("Waiting for a moment...");
-
 
         try {
             Thread.sleep(1000); 
@@ -70,22 +66,17 @@ public class ramcleaner extends JavaPlugin implements Listener {
             e.printStackTrace();
         }
 
-
         long afterMemory = Runtime.getRuntime().freeMemory();
         long cleanedMemoryBytes = afterMemory;
         long cleanedMemoryMB = cleanedMemoryBytes / (1024 * 1024);
 
-
         sender.sendMessage("RAM cleaned: " + cleanedMemoryMB + " MB");
     }
-}
 
     private void displayRamStatus(CommandSender sender) {
-
         long totalMemory = Runtime.getRuntime().totalMemory();
         long freeMemory = Runtime.getRuntime().freeMemory();
         long usedMemory = totalMemory - freeMemory;
-
 
         sender.sendMessage("RAM Status:");
         sender.sendMessage("Total Memory: " + (totalMemory / (1024 * 1024)) + " MB");

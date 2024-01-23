@@ -18,7 +18,7 @@ public class ramcleaner extends JavaPlugin {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (cmd.getName().equalsIgnoreCase("deepcleanmemory")) {
+        if (cmd.getName().equalsIgnoreCase("ramclean")) {
 
             sender.sendMessage("Waiting for garbage collection to clean up memory...");
           
@@ -37,7 +37,7 @@ public class ramcleaner extends JavaPlugin {
             long cleanedMemoryBytes = afterMemory;
             long cleanedMemoryMB = cleanedMemoryBytes / (1024 * 1024);
 
-            sender.sendMessage("RAM deep cleaned: " + cleanedMemoryMB + " MB");
+            sender.sendMessage("RAM cleaned: " + cleanedMemoryMB + " MB");
             return true;
         }
         return false;

@@ -21,6 +21,9 @@ jobs:
 
     - name: Download Dependencies
       run: mvn dependency:resolve
+    - name: Download Dependencies and Compile Java
+      run: mvn clean install
+
     - name: target folder create
       run: mkdir target
     - name: Compile Java

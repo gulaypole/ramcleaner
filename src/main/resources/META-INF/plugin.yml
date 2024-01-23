@@ -1,12 +1,12 @@
-name: DeepCleanMemoryPlugin
+name: ramcleaner
 version: 1.0
-description: Bukkit Plugin with Deep Clean Memory Command
-main: com.example.DeepCleanMemoryPlugin.DeepCleanMemoryPlugin
+description: Bukkit Plugin with Clean Memory Command
+main: com.example.ramcleaner.ramcleaner
 author: YourName
 api-version: 1.13
 website: https://github.com/Katilmami/ramcleanerplugin
 commands:
-  deepcleanmemory:
+  ramclean:
     description: Deep clean up memory
-    usage: /deepcleanmemory
-    permission: deepcleanmemoryplugin.deepcleanmemory
+    usage: /ramclean
+    permission: ramcleaner.ramclean

@@ -34,4 +34,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: ramcleaner
-        path: target/ramcleaner.jar
+        path: target/ramcleaner.jar/DeepCleanMemoryPlugin-1.0-SNAPSHOT.jar

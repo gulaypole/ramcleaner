@@ -24,8 +24,7 @@ jobs:
     - name: Download Dependencies and Compile Java
       run: mvn clean install
 
-    - name: Create JAR
-      run: jar -cvf target/ramcleaner.jar -C target/ .
+
 
     - name: Copy plugin.yml
       run: cp src/main/resources/META-INF/plugin.yml target/
@@ -34,4 +33,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: ramcleaner
-        path: target/ramcleaner.jar/DeepCleanMemoryPlugin-1.0-SNAPSHOT.jar
+        path: target/DeepCleanMemoryPlugin-1.0-SNAPSHOT.jar

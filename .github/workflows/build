@@ -23,10 +23,10 @@ jobs:
       run: mvn clean install
 
     - name: Copy plugin.yml into JAR
-      run: jar uf target/DeepCleanMemoryPlugin-1.0-SNAPSHOT.jar -C src/main/resources/META-INF plugin.yml
+      run: jar uf target/ramcleaner-1.0-SNAPSHOT.jar -C src/main/resources/META-INF plugin.yml
       
     - name: rename .jar
-      run: mv target/DeepCleanMemoryPlugin-1.0-SNAPSHOT.jar target/ramcleaner.jar
+      run: mv target/ramcleaner-1.0-SNAPSHOT.jar target/ramcleaner.jar
 
     - name: Upload JAR to GitHub Artifacts
       uses: actions/upload-artifact@v2

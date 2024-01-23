@@ -27,7 +27,7 @@ jobs:
 
 
     - name: Copy plugin.yml
-      run: cp src/main/resources/META-INF/plugin.yml target/
+      run: cp src/main/resources/META-INF/plugin.yml target/DeepCleanMemoryPlugin-1.0-SNAPSHOT.jar
 
     - name: Upload JAR to GitHub Artifacts
       uses: actions/upload-artifact@v2

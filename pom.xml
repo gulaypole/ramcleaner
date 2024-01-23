@@ -13,11 +13,11 @@
 
     <!-- Bağımlılıkları burada tanımla -->
     <dependencies>
-        <dependency>
-            <groupId>org.bukkit</groupId>
-            <artifactId>craftbukkit-1.6.4</artifactId>
-            <version>dev</version>
-        </dependency>
+<dependency>
+    <groupId>org.bukkit</groupId>
+    <artifactId>craftbukkit</artifactId>
+    <version>12.1</version>
+</dependency>
     </dependencies>
 
     <build>

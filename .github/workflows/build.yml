@@ -24,10 +24,6 @@ jobs:
     - name: Download Dependencies and Compile Java
       run: mvn clean install
 
-
-    - name: Compile Java
-      run: javac -d target src/main/java/com/example/DeepCleanMemoryPlugin/DeepCleanMemoryPlugin.java
-
     - name: Create JAR
       run: jar -cvf target/ramcleaner.jar -C target/ .
 

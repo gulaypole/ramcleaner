@@ -16,24 +16,23 @@ public class DeepCleanMemoryPlugin extends JavaPlugin {
         getLogger().info("DeepCleanMemoryPlugin disabled!");
     }
 
-@Override
-public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-    if (cmd.getName().equalsIgnoreCase("deepcleanmemory")) {
+    @Override
+    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        if (cmd.getName().equalsIgnoreCase("deepcleanmemory")) {
 
-        long beforeMemory = Runtime.getRuntime().freeMemory();
+            long beforeMemory = Runtime.getRuntime().freeMemory();
 
-        System.gc();
-        System.runFinalization();
+            System.gc();
+            System.runFinalization();
 
-        long afterMemory = Runtime.getRuntime().freeMemory();
+            long afterMemory = Runtime.getRuntime().freeMemory();
 
+            long cleanedMemoryBytes = beforeMemory - afterMemory;
+            long cleanedMemoryMB = cleanedMemoryBytes / (1024 * 1024);
 
-        long cleanedMemoryBytes = beforeMemory - afterMemory;
-        long cleanedMemoryMB = cleanedMemoryBytes / (1024 * 1024);
-
-
-        sender.sendMessage("RAM deep cleaned: " + cleanedMemoryMB + " MB");
-        return true;
+            sender.sendMessage("RAM deep cleaned: " + cleanedMemoryMB + " MB");
+            return true;
+        }
+        return false;
     }
-    return false;
 }

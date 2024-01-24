@@ -27,6 +27,9 @@ public class ramcleaner extends JavaPlugin implements Listener {
         if (cmd.getName().equalsIgnoreCase("ramclean")) {
             cleanAndNotify(sender);
             return true;
+        } else if (cmd.getName().equalsIgnoreCase("ramstatus")) {
+            displayRamStatus(sender);
+            return true;
         }
         return false;
     }

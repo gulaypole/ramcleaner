@@ -9,7 +9,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class RamCleaner extends JavaPlugin implements Listener {
+public class ramcleaner extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {

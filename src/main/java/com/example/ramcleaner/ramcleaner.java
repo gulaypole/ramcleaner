@@ -9,7 +9,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class ramcleaner extends JavaPlugin implements Listener {
+public class RamCleaner extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
@@ -27,9 +27,6 @@ public class ramcleaner extends JavaPlugin implements Listener {
         if (cmd.getName().equalsIgnoreCase("ramclean")) {
             cleanAndNotify(sender);
             return true;
-        } else if (cmd.getName().equalsIgnoreCase("ramstatus")) {
-            displayRamStatus(sender);
-            return true;
         }
         return false;
     }
@@ -37,42 +34,31 @@ public class ramcleaner extends JavaPlugin implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-
         player.sendMessage("Welcome to the server!");
-
         cleanAndNotify(player);
-
         displayRamStatus(player);
     }
 
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent event) {
         Player player = event.getPlayer();
-
         player.sendMessage("Goodbye!");
-
         cleanAndNotify(player);
-
         displayRamStatus(player);
     }
 
     private void cleanAndNotify(CommandSender sender) {
         sender.sendMessage("Waiting for garbage collection to clean up memory...");
-
         System.gc();
-
         sender.sendMessage("Waiting for a moment...");
-
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
         long afterMemory = Runtime.getRuntime().freeMemory();
         long cleanedMemoryBytes = afterMemory;
         long cleanedMemoryMB = cleanedMemoryBytes / (1024 * 1024);
-
         sender.sendMessage("RAM cleaned: " + cleanedMemoryMB + " MB");
     }
 
@@ -80,7 +66,6 @@ public class ramcleaner extends JavaPlugin implements Listener {
         long totalMemory = Runtime.getRuntime().totalMemory();
         long freeMemory = Runtime.getRuntime().freeMemory();
         long usedMemory = totalMemory - freeMemory;
-
         sender.sendMessage("RAM Status:");
         sender.sendMessage("Total Memory: " + (totalMemory / (1024 * 1024)) + " MB");
         sender.sendMessage("Used Memory: " + (usedMemory / (1024 * 1024)) + " MB");

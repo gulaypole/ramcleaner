@@ -3,7 +3,7 @@ version: 4.0
 description: Bukkit Plugin with Clean Memory and RAM Status Commands
 main: com.example.ramcleaner.ramcleaner
 author: katilmami
-api-version: 1.7
+api-version: 1.13
 website: https://github.com/Katilmami/ramcleanerplugin
 commands:
   ramclean:

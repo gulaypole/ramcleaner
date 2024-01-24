@@ -1,5 +1,5 @@
 name: ramcleanerpro
-version: 3.0
+version: 4.0
 description: Bukkit Plugin with Clean Memory and RAM Status Commands
 main: com.example.ramcleaner.ramcleaner
 author: katilmami

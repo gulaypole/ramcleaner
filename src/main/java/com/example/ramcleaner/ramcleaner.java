@@ -2,24 +2,20 @@ package com.example.ramcleaner;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class ramcleaner extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
-        getLogger().info("RamCleaner enabled!");
+        getLogger().info("RamCleaner запущен!");
         getServer().getPluginManager().registerEvents(this, this);
     }
 
     @Override
     public void onDisable() {
-        getLogger().info("RamCleaner disabled!");
+        getLogger().info("RamCleaner отключен!");
     }
 
     @Override
@@ -34,26 +30,10 @@ public class ramcleaner extends JavaPlugin implements Listener {
         return false;
     }
 
-    @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent event) {
-        Player player = event.getPlayer();
-        player.sendMessage("Welcome to the server!");
-        cleanAndNotify(player);
-        displayRamStatus(player);
-    }
-
-    @EventHandler
-    public void onPlayerQuit(PlayerQuitEvent event) {
-        Player player = event.getPlayer();
-        player.sendMessage("Goodbye!");
-        cleanAndNotify(player);
-        displayRamStatus(player);
-    }
-
     private void cleanAndNotify(CommandSender sender) {
-        sender.sendMessage("Waiting for garbage collection to clean up memory...");
+        sender.sendMessage("Поднимаю очиститель мусора...");
         System.gc();
-        sender.sendMessage("Waiting for a moment...");
+        sender.sendMessage("Ждем...");
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -62,16 +42,16 @@ public class ramcleaner extends JavaPlugin implements Listener {
         long afterMemory = Runtime.getRuntime().freeMemory();
         long cleanedMemoryBytes = afterMemory;
         long cleanedMemoryMB = cleanedMemoryBytes / (1024 * 1024);
-        sender.sendMessage("RAM cleaned: " + cleanedMemoryMB + " MB");
+        sender.sendMessage("Памяти очищено: " + cleanedMemoryMB + " MB");
     }
 
     private void displayRamStatus(CommandSender sender) {
         long totalMemory = Runtime.getRuntime().totalMemory();
         long freeMemory = Runtime.getRuntime().freeMemory();
         long usedMemory = totalMemory - freeMemory;
-        sender.sendMessage("RAM Status:");
-        sender.sendMessage("Total Memory: " + (totalMemory / (1024 * 1024)) + " MB");
-        sender.sendMessage("Used Memory: " + (usedMemory / (1024 * 1024)) + " MB");
-        sender.sendMessage("Free Memory: " + (freeMemory / (1024 * 1024)) + " MB");
+        sender.sendMessage("Статус ОЗУ:");
+        sender.sendMessage("Всего: " + (totalMemory / (1024 * 1024)) + " MB");
+        sender.sendMessage("Использовано: " + (usedMemory / (1024 * 1024)) + " MB");
+        sender.sendMessage("Свободно: " + (freeMemory / (1024 * 1024)) + " MB");
     }
 }
